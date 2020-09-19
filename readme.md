@@ -11,7 +11,6 @@ Part of the code for tree and forest classes builds on the [EconML](https://gith
 # Generating the figures and tables
 The basic process of generating the figures is to first run the corresponding experiment script in each directory to get experimental results stored in .pkl files, and then use prepare_plot_data.ipynb to transform the .pkl files into .csv files, and finally use the .Rmd file in each directory to generate the plots. 
 
-
 ## newsvendor problem 
 ### Figure 2
 - Fig 2(a) newsvendor/experiment_nv_n.py --> newsvendor/risk_n.pkl -->  newsvendor/risk_nv_n.csv --> newsvendor/Plotting_newsvendor.Rmd
@@ -19,11 +18,9 @@ The basic process of generating the figures is to first run the corresponding ex
 - Fig 2(c) newsvendor/experiment_nv_p.py --> newsvendor/risk_p.pkl -->  newsvendor/risk_nv_p.csv --> newsvendor/Plotting_newsvendor.Rmd
 
 ## CVaR optimization 
-### Figure 3: cvar/experiment_cvar_lognormal.py --> cvar/risk_cvar_lognormal.pkl -->  cvar/risk_lognormal.csv --> cvar/Plotting_cvar.Rmd
-
-### Figure 5: cvar/experiment_cvar_lognormal_oracle.py --> cvar/risk_cvar_lognormal_oracle.pkl --> cvar/risk_lognormal_oracle.csv--> cvar/Plotting_cvar.Rmd
-
-### Figire 6: cvar/experiment_cvar_lognormal_objcoef.py --> cvar/risk_cvar_lognormal_objcoef.pkl --> cvar/risk_lognormal_objcoef.csv --> cvar/Plotting_cvar.Rmd
+- Figure 3: cvar/experiment_cvar_lognormal.py --> cvar/risk_cvar_lognormal.pkl -->  cvar/risk_lognormal.csv --> cvar/Plotting_cvar.Rmd
+- Figure 5: cvar/experiment_cvar_lognormal_oracle.py --> cvar/risk_cvar_lognormal_oracle.pkl --> cvar/risk_lognormal_oracle.csv--> cvar/Plotting_cvar.Rmd
+- Figire 6: cvar/experiment_cvar_lognormal_objcoef.py --> cvar/risk_cvar_lognormal_objcoef.pkl --> cvar/risk_lognormal_objcoef.csv --> cvar/Plotting_cvar.Rmd
 
 ### Figure 7 
 - Figure 7(a): cvar/experiment_cvar_normal.py --> cvar/risk_cvar_normal.pkl --> cvar/risk_normal.csv--> cvar/Plotting_cvar.Rmd
@@ -55,8 +52,8 @@ The basic process of generating the figures is to first run the corresponding ex
 - Fig 11(b): newsvendor/experiment_nv_honesty.py --> newsvendor/risk_nv_honesty.pkl --> newsvendor/risk_nv_honesty.csv --> newsvendor/Plotting_newsvendor.Rmd
 
 ## Running time 
-Table 1: cvar/speed_cvar.ipynb --> time_cvar.pkl
-Table 2: mean_var/speed_meanvar.ipynb --> time_meanvar.pkl
+- Table 1: cvar/speed_cvar.ipynb --> time_cvar.pkl
+- Table 2: mean_var/speed_meanvar.ipynb --> time_meanvar.pkl
 
 
 # Dependencies
