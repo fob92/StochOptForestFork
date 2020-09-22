@@ -6,11 +6,11 @@ mkl.set_num_threads(1)
 
 
 p_list = [10]
-runs = 50
-n_jobs = 50
-n_trees = 500;
-N_list = [100, 200, 400, 800]
-# N_list = [100, 200]
+runs = 1 # 50
+n_jobs = 1 # 50
+n_trees = 10 # 500;
+# N_list = [100, 200, 400, 800]
+N_list = [100, 200]
 Nx_test = 200
 Ny_test = 2000
 Ny_train = 1000
@@ -35,6 +35,8 @@ results_eval_all = {}
 direct = ''
 date = ''
 output = "nv_n.txt"
+
+print('Parameter setting done')
 
 with open(output, 'w') as f:
     print("start", file = f)

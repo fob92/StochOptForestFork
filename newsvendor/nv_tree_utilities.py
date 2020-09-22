@@ -566,6 +566,44 @@ def compare_adaptive_nonadaptive_one_run(X, Y, X_est, Y_est,
 
     return models
 
+
+
+
+def evaluate_one_run_original(models, X_test, Y_test, Y_train,h_list = None, b_list = None, C = None, verbose = False):
+    p = 24
+    L = 1
+    Nx_test = len(Y_test)
+    
+    solver = partial(solve_multi_nv, h_list = h_list, b_list = b_list, C = C, verbose = verbose)
+    evaluate_risk = partial(evaluate_risk_singleX, h_list = h_list, b_list = b_list)
+    
+    decisions = {}
+    risk = {}
+
+    for key in models.keys():
+        decisions[key] = np.zeros((Nx_test, L))
+        risk[key] = np.zeros(Nx_test)
+
+    decisions["oracle"] = np.zeros((Nx_test, L))
+    risk["oracle"] = np.zeros(Nx_test)
+
+    for i in range(Nx_test):    
+        for key in models.keys():
+            if (str(key).find('rf') != -1):
+                try:
+                    weights = models[key].get_weights(X_test[i, :]) 
+                    (decisions[key][i, :], _, _, _) = solver(Y_train, weights = weights, if_weight = True)
+                    risk[key][i] = evaluate_risk(decisions[key][i, :], Y_test[i])
+                except:
+                    decisions[key][i, :] = np.array([np.nan for i in range(L)])
+                    risk[key][i] = np.nan
+
+        decisions["oracle"][i, :] = solver(Y_train)[0]
+        risk["oracle"][i] = evaluate_risk(decisions["oracle"][i, :], Y_test)
+    return (decisions, risk)
+
+
+
 def evaluate_one_run(models, X, Y, X_est, Y_est, Nx_test, Ny_train, Ny_test, cond_mean, cond_std, 
     h_list = None, b_list = None, C = None, verbose = False):
     
